@@ -20,15 +20,23 @@ class RoomList extends Component{
 
     render(){
         return (
+            <div>
 
             <section className="roomList">
+            <h1> Bloc Chat </h1>
             {
               this.state.rooms.map( (room, index) => 
+            
                 <li key = {index}> {room.name}</li>
+                
               )
             }
           </section>
+
+          </div>
         )
     }
 }
+
+//updated
 export default RoomList;
