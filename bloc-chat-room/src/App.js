@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import MessageList from './components/MessageList';
 
 
   var config = {
@@ -19,12 +20,17 @@ class App extends Component {
   render() {
     return (
       <section className="App">
+      <div>
+      <h1> Bloc Chat </h1>
        <RoomList firebase={firebase}/>
-
+       </div>
+       <div>
+       <h1> Messages </h1>
+       <MessageList firebase={firebase}/>
+       </div>
       </section>
     );
   }
 }
 
-//updated
 export default App;
