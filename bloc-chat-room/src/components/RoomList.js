@@ -29,8 +29,12 @@ class RoomList extends Component{
     }
 
     
-    enterRoomName() {
+    enterRoomName(e) {
+        e.preventDefault();
+        if (!this.state.newRoomName) {return}
         this.newRoom(this.state.newRoomName);
+        this.setState({newRoomName: ''});
+
     }    
     
     render(){
@@ -39,9 +43,9 @@ class RoomList extends Component{
 
             <section>
 
-            <form className="addForm" onSubmit={()=>this.enterRoomName()}>
+            <form className="addForm" onSubmit={(e)=>this.enterRoomName(e)}>
 
-                <input type="text" placeholder="Enter Room Name" onChange={(e)=>this.handleChange(e)}/>
+                <input type="text" placeholder="Enter Room Name" value= {this.state.newRoomName} onChange={(e)=>this.handleChange(e)}/>
                 <button className="addbutton" >Add New Room</button>
 
             </form>
