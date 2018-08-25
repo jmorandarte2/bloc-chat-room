@@ -5,6 +5,9 @@ class MessageList extends Component{
         super(props);
         this.state = {
             messages: [],
+
+            //says 'firebase' not defined
+            sentAt: firebase.database.ServerValue.TIMESTAMP,
             
         };
 
@@ -20,21 +23,28 @@ class MessageList extends Component{
       }
 
     render(){
-        return(
-            <div>
+        return (
 
-                {
-                    this.state.messages.map((message, index)=>
-                    <li key={index}>
-                    {message.username} <br />
-                    {message.content}
-                    </li>
-                
-            )}
+            <div>
+            
+
+    {this.state.messages.map( (message, index) => {
+        if (message.roomId === this.props.activeRoom.key) {
+        return <section key={index} >
+        {message.username} <br />
+        {message.content} <br />
+        <small>{this.state.sentAt}</small>
+        </section>
+    } else {
+      return null
+    }
+  })
+}
 
             </div>
-        )
+        )   
     }
 }
 
+//needs update
 export default MessageList;

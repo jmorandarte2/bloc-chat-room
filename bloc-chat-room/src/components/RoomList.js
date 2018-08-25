@@ -36,13 +36,15 @@ class RoomList extends Component{
         if (!this.state.newRoomName) {return}
         this.newRoom(this.state.newRoomName);
         this.setState({newRoomName: ''})
+    }
 
-    }    
-    
+   
+
+
     render(){
         return (
             <div>
-
+                
             <section>
 
             <form className="addForm" onSubmit={(e)=>this.enterRoomName(e)}>
@@ -57,13 +59,15 @@ class RoomList extends Component{
             <section className="roomList">
 
             <h1> List of Available Rooms </h1>
-
-
             {
               this.state.rooms.map( (room, index) => 
             
-                <li key = {index}> {room.name}</li>
-                
+                <div key={index}>
+
+                <input onClick={() => this.props.newActiveRoom(room)}  value={room.name} type="submit" />
+
+                </div>
+  
               )
             }
             </section>
