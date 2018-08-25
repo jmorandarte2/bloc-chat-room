@@ -5,10 +5,8 @@ class MessageList extends Component{
         super(props);
         this.state = {
             messages: [],
-
-            //says 'firebase' not defined
-            sentAt: firebase.database.ServerValue.TIMESTAMP,
-            
+            //sentAt: 'this.props.firebase.database.ServerValue.TIMESTAMP',-- has errors
+            //according to technical coach on slack, this will be used on upcoming checkpoints 
         };
 
         this.messagesRef = this.props.firebase.database().ref('messages');
@@ -33,11 +31,9 @@ class MessageList extends Component{
         return <section key={index} >
         {message.username} <br />
         {message.content} <br />
-        <small>{this.state.sentAt}</small>
+        <small>{message.sentAt}</small>
         </section>
-    } else {
-      return null
-    }
+    } 
   })
 }
 
@@ -46,5 +42,5 @@ class MessageList extends Component{
     }
 }
 
-//needs update
+
 export default MessageList;
