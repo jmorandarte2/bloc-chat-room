@@ -4,6 +4,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 
 
   var config = {
@@ -22,6 +23,7 @@ import MessageList from './components/MessageList';
       super(props);
       this.state = {
         activeRoom: '',
+        user:'',
     }
   }
 
@@ -31,6 +33,10 @@ import MessageList from './components/MessageList';
 
   newActiveRoom (room){
     this.setState({activeRoom: room})
+  }
+
+  setUser(user){
+    this.setState({user: user })
   }
 
   render() {
@@ -44,10 +50,13 @@ import MessageList from './components/MessageList';
        <h3> Messages </h3>
        <MessageList firebase={firebase} newActiveRoom={(room)=> this.newActiveRoom(room)} onChange={(e)=> this.handleChange(e)}  activeRoom={this.state.activeRoom}/>
        </div>
+
+       <div>
+         <User firebase={firebase} setUser={(user)=>this.setUser(user)} user={this.state.user}/>
+       </div>
       </section>
     );
   }
 }
 
-//updated for submission
 export default App;
