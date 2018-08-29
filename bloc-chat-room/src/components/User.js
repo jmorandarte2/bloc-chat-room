@@ -25,7 +25,7 @@ class User extends Component{
 
                 <h4>
                     <small>USERNAME:</small> <br />
-                    {this.props.user.displayName}
+                    {this.props.user ? this.props.user.displayName: <small><i>you are not signed in</i></small>}
                 </h4>
 
                 <section>
@@ -35,7 +35,7 @@ class User extends Component{
                     </button>
                 </section>
                 <section>
-                    <button>
+                    <button onClick={()=>this.signOut()}>
                         <small>Click to</small> <br />
                         <strong>SIGN OUT</strong>
                     </button>
@@ -47,5 +47,4 @@ class User extends Component{
     }
 }
 
-////update -- I did an npm update for assignment 5 submission
 export default User
