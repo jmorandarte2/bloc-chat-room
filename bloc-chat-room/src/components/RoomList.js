@@ -44,7 +44,7 @@ class RoomList extends Component{
     render(){
         return (
             <div>
-                
+
             <section>
 
             <form className="addForm" onSubmit={(e)=>this.enterRoomName(e)}>
@@ -58,16 +58,16 @@ class RoomList extends Component{
 
             <section className="roomList">
 
-            <h1> List of Available Rooms </h1>
+            <h2> List of Available Rooms </h2>
             {
               this.state.rooms.map( (room, index) => 
             
                 <div key={index}>
 
-                <input onClick={() => this.props.newActiveRoom(room)}  value={room.name} type="submit" />
+                <input className='room-names' onClick={() => this.props.newActiveRoom(room)}  value={room.name} type="submit" />
 
                 </div>
-  
+ 
               )
             }
             </section>
@@ -77,5 +77,5 @@ class RoomList extends Component{
     }
 }
 
-//updated for submission
+
 export default RoomList;

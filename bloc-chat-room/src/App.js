@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
@@ -24,6 +23,7 @@ import User from './components/User';
       this.state = {
         activeRoom: '',
         user:'',
+        messageId: '',
     }
   }
 
@@ -39,20 +39,26 @@ import User from './components/User';
     this.setState({user: user })
   }
 
+  newMessage(message) {
+    this.setState({ messageId: message })
+  }
+
   render() {
     return (
       <section className="App">
-      <div>
+
+      <section id='users'>
+      <User firebase={firebase} setUser={(user)=>this.setUser(user)} user={this.state.user}/>
+      </section>
+      <div id='grids'>
+      <section >
       <h1> Bloc Chat </h1>
        <RoomList firebase={firebase}  newActiveRoom={(room)=> this.newActiveRoom(room)}  onChange={(e)=> this.handleChange(e)}  activeRoom={this.state.activeRoom}/>
-       </div>
-       <div>
+       </section>
+       <section id='messages'>
        <h3> Messages </h3>
-       <MessageList firebase={firebase} newActiveRoom={(room)=> this.newActiveRoom(room)} onChange={(e)=> this.handleChange(e)}  activeRoom={this.state.activeRoom}/>
-       </div>
-
-       <div>
-         <User firebase={firebase} setUser={(user)=>this.setUser(user)} user={this.state.user}/>
+       <MessageList firebase={firebase} newActiveRoom={(room)=> this.newActiveRoom(room)} onChange={(e)=> this.handleChange(e)}  activeRoom={this.state.activeRoom} user={this.state.user}/>
+       </section>
        </div>
       </section>
     );

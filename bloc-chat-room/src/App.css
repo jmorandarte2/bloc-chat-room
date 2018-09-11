@@ -1,28 +1,91 @@
-.App {
+#grids {
   text-align: center;
+  background-color: lightgray;
+  display: grid;
+  padding: 50px;
+  grid-template-columns: 250px 80% 250px;
+  height: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#messages {
+
+  background-color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  background-color:white; 
+  display: table;
+  padding: 15px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+  text-align: left;
+} 
+
+#users{
+  float: center;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.signing:hover {
+  background-image: radial-gradient(circle, black, gray, white);
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.addbutton:hover{
+  background-image: radial-gradient(circle, black, gray, white);
+  color: white;
 }
 
-.App-intro {
-  font-size: large;
+.room-names:hover{
+  background-image: radial-gradient(circle, black, gray, white);
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.signing{
+  border-radius: 100px;
+  padding: 10px;
+  width: 50%;
+  float: center;
+ 
 }
+
+h1 {
+  font-size: 35pt;
+}
+
+#user-side{
+  text-align: center;
+  background-image: linear-gradient(black, white);
+  color: white;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#message{
+  float: bottom;
+  padding: 12px 20px;
+  height: 50px;
+  width: 100%;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+  background-color:lightgray;
+}
+
+#sendB{
+  border-radius: 100px;
+  padding: 10px;
+  width: 50%;
+  float: center;
+}
+
+#sendB:hover{
+  background-image: radial-gradient(circle, black, gray, white);
+  color: white;
+}
+
+

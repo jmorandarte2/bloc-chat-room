@@ -21,25 +21,26 @@ class User extends Component{
 
         return(
 
-            <div>
+            <div id='user-side'>
 
-                <h4>
-                    <small>USERNAME:</small> <br />
-                    {this.props.user ? this.props.user.displayName: <small><i>you are not signed in</i></small>}
-                </h4>
+            <section className='username'>
 
-                <section>
-                    <button onClick={()=>this.signIn()}>
+                    USERNAME: <br />
+                    <h2 className='user-name'>{this.props.user ? this.props.user.displayName:<small><i> Guest <br /> <small>You are not signed in</small></i></small>}</h2>
+
+            
+            </section>
+
+ 
+                    <button onClick={()=>this.signIn()} className='signing'>
                     <small>Click to</small> <br />
                     <strong> SIGN IN</strong>
                     </button>
-                </section>
-                <section>
-                    <button onClick={()=>this.signOut()}>
+                
+                    <button onClick={()=>this.signOut()} className='signing'>
                         <small>Click to</small> <br />
                         <strong>SIGN OUT</strong>
                     </button>
-                </section>
 
             </div>
 
